@@ -13,7 +13,6 @@ import Box from "@material-ui/core/Box";
 // import FormGroup from "@material-ui/core/FormGroup";
 // import MenuItem from "@material-ui/core/MenuItem";
 // import Menu from "@material-ui/core/Menu";
-import NavBar from "../component/NavBar";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,13 +27,42 @@ const useStyles = makeStyles((theme) => ({
   navli: {},
 }));
 
-function Home() {
+const NavBar = () => {
   const classes = useStyles();
   return (
     <div>
-      <h1>page index</h1>
+      <AppBar position="static">
+        <Head>
+          <title>Create App</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <Toolbar>
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="menu"
+          ></IconButton>
+          <Typography variant="h5" className={classes.title}>
+            <Link href="/">Dashboard Kpi</Link>
+          </Typography>
+
+          <Box display="flex" flexDirection="row" p={2} m={1}>
+            <Box p={2}>
+              <Link href="/connection">
+                <a>Connection</a>
+              </Link>
+            </Box>
+            <Box p={2}>
+              <Link href="/dashboard">
+                <a>Dashboard</a>
+              </Link>
+            </Box>
+          </Box>
+        </Toolbar>
+      </AppBar>
     </div>
   );
-}
+};
 
-export default Home;
+export default NavBar;
